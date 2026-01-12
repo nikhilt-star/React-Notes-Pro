@@ -28,7 +28,7 @@ const Home = () => {
     });
   };
   return (
-    <div className="min-h-screen w-full bg-linear-to-br from-[#0f172a] via-[#0b1220] to-[#071426] flex items-center justify-center flex-col p-6 text-amber-50 font-poppins">
+    <div className="min-h-screen w-full bg-gradient-to-br from-[#0f172a] via-[#0b1220] to-[#071426] flex items-center justify-center flex-col p-4 sm:p-6 text-amber-50 font-poppins">
       <Navbar />
       <Toast ref={toast} className="toast-custom" />
       <form

@@ -8,6 +8,7 @@ const NotesDataContext = ({ children }) => {
   const [text, settext] = useState("");
   const [date, setdate] = useState("");
   const [AllData, setAllData] = useState(localData);
+  const [searchNote, setsearchNote] = useState('')
   let Alldetails = "";
   function isValidDate(selectedDate) {
     if (!selectedDate) return false;
@@ -55,6 +56,14 @@ const NotesDataContext = ({ children }) => {
     setAllData(copyNotes);
     localStorage.setItem("notes", JSON.stringify(copyNotes));
   }
+  const searchData = searchNote;
+  const filterNotes = searchData.trim()==="" ? AllData : AllData.filter((elem)=>{
+   if(elem.title === searchData)
+   {
+      return elem
+    }
+  })
+  
   return (
     <>
       <Toast ref={toast} position="top-right" />
@@ -68,8 +77,11 @@ const NotesDataContext = ({ children }) => {
           setdate,
           AllData,
           setAllData,
+          setsearchNote,
+          searchNote,
           SubmitHandler,
           DeleteNotes,
+          filterNotes
         }}
       >
         {children}
